@@ -1,0 +1,6 @@
+{
+  "name": "Zentra Creator — AI Video Creator & Visual Content Designer",
+  "description": "Premium portfolio for Zentra Creator featuring cinematic AI videos, high-fashion advertising, product commercials, and brand visual direction.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
