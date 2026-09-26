@@ -92,10 +92,10 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="home"
-      className="relative min-h-[96vh] pt-24 pb-12 lg:pt-28 lg:pb-16 flex flex-col justify-center overflow-hidden bg-[#070709]"
+      className="relative min-h-[96vh] pt-24 pb-12 lg:pt-28 lg:pb-16 flex flex-col justify-center overflow-hidden bg-black md:bg-[#070709]"
     >
-      {/* ================= FULL-BLEED CINEMATIC SCENE BACKGROUND ================= */}
-      <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
+      {/* ================= FULL-BLEED CINEMATIC SCENE BACKGROUND (Hidden on mobile for pure black/blank background) ================= */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         {/* The Right Cinematic Image (Model + warm studio atmosphere) */}
         <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[68%] xl:w-[64%] h-full">
           <img
