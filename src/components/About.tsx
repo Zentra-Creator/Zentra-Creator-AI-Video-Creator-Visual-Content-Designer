@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CREATOR_ASSETS } from '../data/portfolioData';
 import { useTheme } from '../context/ThemeContext';
-import { Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 interface AboutProps {
   onOpenContact: () => void;
@@ -63,11 +63,6 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
                     <p className="text-xs text-[#F5C542] font-semibold">
                       Zentra Creator
                     </p>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] text-neutral-300">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#F5C542]" />
-                    <span>Commercial Grade</span>
                   </div>
                 </div>
               </div>
