@@ -33,11 +33,6 @@ export const Footer: React.FC = () => {
             <p className="text-sm font-semibold tracking-wider uppercase text-[#F5C542]">
               AI Video • Creative Ads • Visual Content
             </p>
-
-            <p className="text-xs sm:text-sm text-neutral-400 max-w-md leading-relaxed">
-              Crafting cinematic AI-generated commercial campaigns, product advertisements,
-              and fashion visuals that give forward-thinking brands an unfair advantage.
-            </p>
           </div>
 
           {/* Navigation Links */}
@@ -58,7 +53,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#services" className="hover:text-[#F5C542] transition-colors">
-                  What I Create
+                  What I Design
                 </a>
               </li>
               <li>
