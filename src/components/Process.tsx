@@ -102,8 +102,8 @@ export const Process: React.FC<ProcessProps> = ({ onOpenFeaturedVideo }) => {
           </h2>
 
           <p
-            className={`mt-4 text-base sm:text-lg transition-colors duration-200 ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            className={`mt-4 text-base sm:text-lg transition-colors duration-200 font-normal ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
             }`}
           >
             A streamlined, collaborative 4-step system designed to deliver commercial-grade
@@ -247,7 +247,7 @@ export const Process: React.FC<ProcessProps> = ({ onOpenFeaturedVideo }) => {
                   {/* Detailed explanation */}
                   <p
                     className={`text-xs sm:text-sm leading-relaxed ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700 font-medium'
                     }`}
                   >
                     {item.detail}

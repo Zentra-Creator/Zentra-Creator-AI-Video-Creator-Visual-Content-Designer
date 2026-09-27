@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
       className={`border-t transition-colors duration-200 ${
         theme === 'dark'
           ? 'bg-[#0a0a0c] border-white/10 text-neutral-400'
-          : 'bg-[#F9F9F8] border-black/10 text-neutral-600'
+          : 'bg-[#F4F4F3] border-neutral-200 text-neutral-900'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -37,10 +37,14 @@ export const Footer: React.FC = () => {
 
           {/* Navigation Links */}
           <div className="md:col-span-3 space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 block mb-2">
+            <span className={`text-xs font-bold uppercase tracking-wider block mb-2 ${
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+            }`}>
               Navigation
             </span>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <ul className={`space-y-2 text-xs sm:text-sm font-medium ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
+            }`}>
               <li>
                 <a href="#home" className="hover:text-[#F5C542] transition-colors">
                   Home
@@ -76,10 +80,14 @@ export const Footer: React.FC = () => {
 
           {/* Direct Channels */}
           <div className="md:col-span-3 space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 block mb-2">
+            <span className={`text-xs font-bold uppercase tracking-wider block mb-2 ${
+              theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+            }`}>
               Direct Channels
             </span>
-            <div className="flex flex-col space-y-2.5 text-xs sm:text-sm">
+            <div className={`flex flex-col space-y-2.5 text-xs sm:text-sm font-medium ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
+            }`}>
               <a
                 href="https://wa.me/2348126561993"
                 target="_blank"

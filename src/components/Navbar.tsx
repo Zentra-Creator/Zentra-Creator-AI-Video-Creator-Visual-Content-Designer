@@ -122,10 +122,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   }}
                   className={`relative py-1.5 transition-colors duration-200 group ${
                     isActive
-                      ? 'text-[#F5C542] font-semibold'
+                      ? 'text-[#F5C542] font-bold'
                       : theme === 'dark'
                       ? 'text-neutral-300 hover:text-white'
-                      : 'text-neutral-600 hover:text-neutral-950'
+                      : 'text-neutral-900 font-semibold hover:text-black'
                   }`}
                 >
                   {link.label}

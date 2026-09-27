@@ -126,7 +126,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
 
               <p
                 className={`mt-6 text-base sm:text-lg leading-relaxed ${
-                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                  theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
                 }`}
               >
                 Tell me what you're building, what you're selling, or what you want people to
@@ -171,7 +171,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                   className={`p-3.5 rounded-xl border flex items-center gap-3 transition-colors ${
                     theme === 'dark'
                       ? 'bg-neutral-900 border-white/10 hover:border-[#25D366]/60 text-white'
-                      : 'bg-white border-black/10 hover:border-[#25D366] text-neutral-900'
+                      : 'bg-white border-neutral-200 hover:border-[#25D366] text-neutral-900 shadow-sm'
                   }`}
                 >
                   <div className="w-9 h-9 rounded-lg bg-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
@@ -182,7 +182,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                       <span>WhatsApp Direct</span>
                       <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
                     </div>
-                    <div className="text-[11px] text-neutral-400 truncate">08126561993 • Chat in DM</div>
+                    <div className={`text-[11px] truncate ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700 font-medium'}`}>08126561993 • Chat in DM</div>
                   </div>
                 </a>
 
@@ -191,7 +191,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                   className={`p-3.5 rounded-xl border flex items-center gap-3 transition-colors ${
                     theme === 'dark'
                       ? 'bg-neutral-900 border-white/10 hover:border-[#F5C542]/60 text-white'
-                      : 'bg-white border-black/10 hover:border-[#F5C542] text-neutral-900'
+                      : 'bg-white border-neutral-200 hover:border-[#F5C542] text-neutral-900 shadow-sm'
                   }`}
                 >
                   <div className="w-9 h-9 rounded-lg bg-[#F5C542]/20 flex items-center justify-center text-[#F5C542] shrink-0">
@@ -199,7 +199,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                   </div>
                   <div className="min-w-0">
                     <div className="text-xs font-bold">Direct Email</div>
-                    <div className="text-[11px] text-neutral-400 truncate">oluwatobilobaodedoyin@gmail.com</div>
+                    <div className={`text-[11px] truncate ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700 font-medium'}`}>oluwatobilobaodedoyin@gmail.com</div>
                   </div>
                 </a>
               </div>
@@ -213,7 +213,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                   className={`p-3.5 rounded-xl border flex items-center justify-between gap-3 transition-all ${
                     theme === 'dark'
                       ? 'bg-neutral-900 border-white/10 hover:border-[#E1306C]/70 text-white group'
-                      : 'bg-white border-black/10 hover:border-[#E1306C]/70 text-neutral-900 group'
+                      : 'bg-white border-neutral-200 hover:border-[#E1306C]/70 text-neutral-900 group shadow-sm'
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
@@ -224,7 +224,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                       <div className="text-xs font-bold group-hover:text-[#F5C542] transition-colors">
                         Instagram
                       </div>
-                      <div className="text-[11px] text-neutral-400 truncate">@zentra_creator</div>
+                      <div className={`text-[11px] truncate ${theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700 font-medium'}`}>@zentra_creator</div>
                     </div>
                   </div>
                   <span className="text-xs font-semibold text-[#F5C542] group-hover:translate-x-0.5 transition-transform flex items-center gap-1 shrink-0">
@@ -321,7 +321,9 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold mb-1.5 text-neutral-400 uppercase tracking-wider">
+                      <label className={`block text-xs font-bold mb-1.5 uppercase tracking-wider ${
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+                      }`}>
                         Your Name *
                       </label>
                       <input
@@ -333,13 +335,15 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                         className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#F5C542] transition-colors ${
                           theme === 'dark'
                             ? 'bg-neutral-900 border-white/10 text-white placeholder-neutral-500'
-                            : 'bg-neutral-50 border-neutral-300 text-neutral-900 placeholder-neutral-400'
+                            : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-500'
                         }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold mb-1.5 text-neutral-400 uppercase tracking-wider">
+                      <label className={`block text-xs font-bold mb-1.5 uppercase tracking-wider ${
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+                      }`}>
                         Work Email *
                       </label>
                       <input
@@ -351,7 +355,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                         className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#F5C542] transition-colors ${
                           theme === 'dark'
                             ? 'bg-neutral-900 border-white/10 text-white placeholder-neutral-500'
-                            : 'bg-neutral-50 border-neutral-300 text-neutral-900 placeholder-neutral-400'
+                            : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-500'
                         }`}
                       />
                     </div>
@@ -360,7 +364,9 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                   {/* Brand & Project Type */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold mb-1.5 text-neutral-400 uppercase tracking-wider">
+                      <label className={`block text-xs font-bold mb-1.5 uppercase tracking-wider ${
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+                      }`}>
                         Brand / Company
                       </label>
                       <input
@@ -371,13 +377,15 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                         className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#F5C542] transition-colors ${
                           theme === 'dark'
                             ? 'bg-neutral-900 border-white/10 text-white placeholder-neutral-500'
-                            : 'bg-neutral-50 border-neutral-300 text-neutral-900 placeholder-neutral-400'
+                            : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-500'
                         }`}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold mb-1.5 text-neutral-400 uppercase tracking-wider">
+                      <label className={`block text-xs font-bold mb-1.5 uppercase tracking-wider ${
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+                      }`}>
                         Service Focus
                       </label>
                       <select
@@ -386,7 +394,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                         className={`w-full px-4 py-2.5 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#F5C542] transition-colors ${
                           theme === 'dark'
                             ? 'bg-neutral-900 border-white/10 text-white'
-                            : 'bg-neutral-50 border-neutral-300 text-neutral-900'
+                            : 'bg-white border-neutral-300 text-neutral-900'
                         }`}
                       >
                         {projectTypes.map((type) => (
@@ -400,7 +408,9 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
 
                   {/* Project Details */}
                   <div>
-                    <label className="block text-xs font-semibold mb-1.5 text-neutral-400 uppercase tracking-wider">
+                    <label className={`block text-xs font-bold mb-1.5 uppercase tracking-wider ${
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+                    }`}>
                       Project Goals & Details *
                     </label>
                     <textarea
@@ -412,7 +422,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                       className={`w-full px-4 py-3 rounded-xl text-sm border focus:outline-none focus:ring-2 focus:ring-[#F5C542] transition-colors resize-none ${
                         theme === 'dark'
                           ? 'bg-neutral-900 border-white/10 text-white placeholder-neutral-500'
-                          : 'bg-neutral-50 border-neutral-300 text-neutral-900 placeholder-neutral-400'
+                          : 'bg-white border-neutral-300 text-neutral-900 placeholder-neutral-500'
                       }`}
                     />
                   </div>

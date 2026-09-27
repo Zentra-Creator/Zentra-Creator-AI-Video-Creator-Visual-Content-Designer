@@ -103,8 +103,8 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService, onOpenProje
           </h2>
 
           <p
-            className={`mt-4 text-base sm:text-lg transition-colors duration-200 ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+            className={`mt-4 text-base sm:text-lg transition-colors duration-200 font-normal ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
             }`}
           >
             End-to-end AI video and visual content production tailored for commercial brands,
@@ -386,7 +386,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService, onOpenProje
                   {/* Description */}
                   <p
                     className={`text-sm leading-relaxed mb-5 transition-colors duration-200 ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700 font-medium'
                     }`}
                   >
                     {service.description}

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --brand-yellow: #F5C542;
@@ -20,6 +22,25 @@
   /* Display Font Utility for branded titles */
   .font-display {
     font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Ensure rich, legible text contrast in light mode */
+  html.light, body.light {
+    color: #111827;
+  }
+
+  html.light p, body.light p {
+    color: #1f2937;
+  }
+
+  html.light .text-neutral-400,
+  html.light .text-neutral-500,
+  html.light .text-neutral-600 {
+    color: #374151 !important;
+  }
+
+  html.light .text-neutral-300 {
+    color: #1f2937 !important;
   }
 }
 

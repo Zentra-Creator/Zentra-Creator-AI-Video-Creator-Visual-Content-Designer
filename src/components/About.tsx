@@ -92,7 +92,7 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
 
             <div
               className={`space-y-4 text-base sm:text-lg leading-relaxed ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
               }`}
             >
               <p>
@@ -107,7 +107,7 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
                 productions.
               </p>
 
-              <p className="text-sm sm:text-base text-neutral-400 dark:text-neutral-400">
+              <p className={theme === 'dark' ? 'text-sm sm:text-base text-neutral-400' : 'text-sm sm:text-base text-neutral-700 font-medium'}>
                 Traditional advertising can be expensive and take a long time to produce. I use modern AI technology, 3D design, and professional color editing to create high-quality visuals that look like they were made by a professional studio—faster, more affordably, and ready for today’s digital world.
               </p>
             </div>

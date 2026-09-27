@@ -92,15 +92,17 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = ({
             </h2>
             
             <p
-              className={`mt-4 text-base sm:text-lg transition-colors duration-200 text-center ${
-                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-600'
+              className={`mt-4 text-base sm:text-lg transition-colors duration-200 text-center font-normal ${
+                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
               }`}
             >
               A selection of AI-powered visuals created for products, brands and creative campaigns.
             </p>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-xs text-neutral-400 font-mono">
+          <div className={`flex items-center justify-center gap-2 text-xs font-mono ${
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700 font-medium'
+          }`}>
             <span>Showing</span>
             <span className="font-bold text-[#F5C542]">{filteredProjects.length}</span>
             <span>of {PORTFOLIO_PROJECTS.length} projects</span>
