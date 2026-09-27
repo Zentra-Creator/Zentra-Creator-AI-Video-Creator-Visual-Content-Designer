@@ -98,7 +98,7 @@ export const Process: React.FC<ProcessProps> = ({ onOpenFeaturedVideo }) => {
               theme === 'dark' ? 'text-white' : 'text-neutral-950'
             }`}
           >
-            From Idea to Final Visual
+            From Concept to Finished Design
           </h2>
 
           <p
@@ -177,57 +177,36 @@ export const Process: React.FC<ProcessProps> = ({ onOpenFeaturedVideo }) => {
                 </button>
               </div>
 
-              {/* Bottom Cinema Bar */}
-              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-center justify-between text-white z-20">
-                <div>
-                  <h3 className="font-display text-base sm:text-2xl font-bold tracking-tight text-white">
-                    Idea to Execution — Workflow Reel
-                  </h3>
-                  <p className="text-xs sm:text-sm text-neutral-300 hidden sm:block">
-                    From creative concept and prompt engineering to final commercial-grade delivery.
-                  </p>
-                </div>
+              {/* Bottom Cinema Controls */}
+              <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 flex items-center gap-3 text-white z-20">
+                <button
+                  type="button"
+                  onClick={toggleMute}
+                  className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/10 text-white transition-colors"
+                  aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
+                  title={isMuted ? 'Unmute' : 'Mute'}
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4 text-neutral-400" /> : <Volume2 className="w-4 h-4 text-[#F5C542]" />}
+                </button>
 
-                <div className="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={toggleMute}
-                    className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/10 text-white transition-colors"
-                    aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
-                    title={isMuted ? 'Unmute' : 'Mute'}
-                  >
-                    {isMuted ? <VolumeX className="w-4 h-4 text-neutral-400" /> : <Volume2 className="w-4 h-4 text-[#F5C542]" />}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleFullscreen}
-                    className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/10 text-white transition-colors"
-                    aria-label="Full-Screen View"
-                    title="Fullscreen"
-                  >
-                    <Maximize2 className="w-4 h-4" />
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={handleFullscreen}
+                  className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/10 text-white transition-colors"
+                  aria-label="Full-Screen View"
+                  title="Fullscreen"
+                >
+                  <Maximize2 className="w-4 h-4" />
+                </button>
               </div>
             </div>
 
-            {/* Quick Reel Highlights Ticker */}
+            {/* Quick Reel Action Bar */}
             <div
-              className={`p-4 sm:px-8 sm:py-5 flex flex-wrap items-center justify-between gap-4 text-xs ${
+              className={`p-4 sm:px-8 sm:py-4 flex items-center justify-end text-xs ${
                 theme === 'dark' ? 'bg-[#121217] text-neutral-400' : 'bg-neutral-900 text-neutral-300'
               }`}
             >
-              <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
-                <span>Runway Gen-3 Alpha</span>
-                <span className="text-neutral-600 hidden sm:inline">/</span>
-                <span>Midjourney v6.1</span>
-                <span className="text-neutral-600 hidden sm:inline">/</span>
-                <span>Luma Dream Machine</span>
-                <span className="text-neutral-600 hidden sm:inline">/</span>
-                <span>DaVinci Studio Finishing</span>
-              </div>
-
               <button
                 type="button"
                 onClick={handleFullscreen}

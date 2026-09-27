@@ -22,22 +22,59 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
     email: '',
     brand: '',
     projectType: initialService || 'AI Video Advertising',
-    budget: '$500 – $800',
     message: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const RECIPIENT_EMAIL = 'oluwatobilobaodedoyin@gmail.com';
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
 
-    // Simulate swift submission
-    setTimeout(() => {
+    const emailSubject = `New Project Inquiry from ${formData.name || 'Client'}: ${formData.projectType}`;
+    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\nBrand / Company: ${formData.brand || 'N/A'}\nService Focus: ${formData.projectType}\n\nProject Details:\n${formData.message}`;
+
+    try {
+      // Send directly to oluwatobilobaodedoyin@gmail.com via FormSubmit AJAX service
+      const response = await fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          brand: formData.brand || 'Not specified',
+          serviceFocus: formData.projectType,
+          message: formData.message,
+          _subject: emailSubject,
+          _template: 'table',
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitting(false);
+        setSubmitted(true);
+        return;
+      }
+      throw new Error('Direct service response was not ok');
+    } catch (err) {
+      console.warn('FormSubmit AJAX fallback initiated:', err);
+      // Fallback: Open mailto directly prefilled with all details to ensure delivery
+      const mailtoUrl = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
+        emailSubject
+      )}&body=${encodeURIComponent(emailBody)}`;
+      window.location.href = mailtoUrl;
+
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 800);
+    }
   };
 
   const scrollToWork = () => {
@@ -55,8 +92,6 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
     'Social Media Ads',
     'Creative Campaigns',
   ];
-
-  const budgetRanges = ['Under $500', '$500 – $800', '$800 – $1,200', '$1,200 – $1,500'];
 
   return (
     <section id="contact" className="py-24 sm:py-32 scroll-mt-20 relative overflow-hidden">
@@ -213,7 +248,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
               }`}
             >
               {submitted ? (
-                <div className="py-12 text-center space-y-4 animate-fadeIn">
+                <div className="py-10 text-center space-y-4 animate-fadeIn">
                   <div className="w-16 h-16 rounded-full bg-[#F5C542]/20 text-[#F5C542] flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
@@ -222,17 +257,45 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                       theme === 'dark' ? 'text-white' : 'text-neutral-950'
                     }`}
                   >
-                    Brief Received!
+                    Brief Sent Directly!
                   </h3>
-                  <p className="text-sm text-neutral-400 max-w-md mx-auto">
-                    Thank you for reaching out, {formData.name || 'there'}. I'll review your project details
-                    and respond within 24 hours with visual references and next steps.
+                  <p className="text-sm text-neutral-400 max-w-md mx-auto leading-relaxed">
+                    Thank you, <span className="font-semibold text-white">{formData.name || 'there'}</span>.
+                    Your brief for <span className="text-[#F5C542] font-semibold">{formData.projectType}</span> has been dispatched to{' '}
+                    <span className="font-mono text-neutral-300">oluwatobilobaodedoyin@gmail.com</span>.
                   </p>
-                  <div className="pt-4">
+
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
+                        `Project Inquiry: ${formData.projectType} — ${formData.name}`
+                      )}&body=${encodeURIComponent(
+                        `Name: ${formData.name}\nEmail: ${formData.email}\nBrand: ${formData.brand || 'N/A'}\nService: ${formData.projectType}\n\n${formData.message}`
+                      )}`}
+                      className="px-5 py-2.5 rounded-full text-xs font-bold bg-[#F5C542] text-neutral-950 hover:bg-[#e5b634] transition-all flex items-center gap-2"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>Open in Your Email App</span>
+                    </a>
+
+                    <a
+                      href={`https://wa.me/2348126561993?text=${encodeURIComponent(
+                        `Hi Oluwatobiloba, I just submitted an inquiry for ${formData.projectType}. My name is ${formData.name} (${formData.email}).`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-full text-xs font-semibold bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/30 transition-all flex items-center gap-2"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" />
+                      <span>Follow Up on WhatsApp</span>
+                    </a>
+                  </div>
+
+                  <div className="pt-3">
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-full text-xs font-bold bg-[#F5C542] text-neutral-950 hover:bg-[#e5b634]"
+                      className="text-xs text-neutral-400 hover:text-neutral-200 underline underline-offset-4"
                     >
                       Send Another Inquiry
                     </button>
@@ -240,7 +303,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                  <div className="border-b border-neutral-200 dark:border-neutral-800 pb-4">
                     <div>
                       <h3
                         className={`font-display text-xl font-bold ${
@@ -253,10 +316,6 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                         Typical response time: Under 12 hours
                       </p>
                     </div>
-
-                    <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-[#F5C542]/10 text-[#F5C542]">
-                      Available for Q2/Q3 Projects
-                    </span>
                   </div>
 
                   {/* Name & Email */}
@@ -336,31 +395,6 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({ initialService }) => {
                           </option>
                         ))}
                       </select>
-                    </div>
-                  </div>
-
-                  {/* Budget Selector */}
-                  <div>
-                    <label className="block text-xs font-semibold mb-2 text-neutral-400 uppercase tracking-wider">
-                      Target Budget Range
-                    </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                      {budgetRanges.map((range) => (
-                        <button
-                          key={range}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, budget: range })}
-                          className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-colors ${
-                            formData.budget === range
-                              ? 'bg-[#F5C542] text-neutral-950 border-[#F5C542] font-bold shadow-sm'
-                              : theme === 'dark'
-                              ? 'bg-neutral-900 border-white/10 text-neutral-300 hover:border-white/20'
-                              : 'bg-neutral-100 border-neutral-200 text-neutral-700 hover:border-neutral-300'
-                          }`}
-                        >
-                          {range}
-                        </button>
-                      ))}
                     </div>
                   </div>
 

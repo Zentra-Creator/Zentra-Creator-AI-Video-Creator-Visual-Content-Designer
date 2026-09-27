@@ -45,7 +45,7 @@ Reveals the exact 4-stage creative pipeline from concept to final delivery:
 3. `03` **High-Fidelity AI Generation**: Diffusion synthesis, multi-stage 4K upscaling, and optical flow stabilization.
 4. `04` **Final Delivery & Color Grade**: Cinematic sound design, typography, and platform-specific formats.
 
-### 6. What I Create — Services & Video Slots (`Services.tsx`)
+### 6. What I Design — Services & Video Slots (`Services.tsx`)
 - **Master Service Reel Player**: An interactive div slot player allowing clients to switch between all 6 core services and watch the corresponding live demonstration video.
 - **In-Card Video Slots**: Every service card features an embedded 16:9 video player with a live reel preview and quick booking trigger:
   - `01` **AI Video Advertising** (Commercial spots)
@@ -64,11 +64,6 @@ Reveals the exact 4-stage creative pipeline from concept to final delivery:
   - **WhatsApp Direct**: [`https://wa.me/2348126561993`](https://wa.me/2348126561993) — Instant chat & DM at `08126561993`.
   - **Direct Email**: [`mailto:oluwatobilobaodedoyin@gmail.com`](mailto:oluwatobilobaodedoyin@gmail.com).
   - **Instagram**: [`https://www.instagram.com/zentra_creator/`](https://www.instagram.com/zentra_creator/) — `@zentra_creator`.
-- **Target Budget Range**: Capped at **$1,500 maximum** with 4 accessible tiers:
-  - `Under $500`
-  - `$500 – $800` (Default selection)
-  - `$800 – $1,200`
-  - `$1,200 – $1,500` (Maximum tier)
 - **Project Form**: Captures name, business email, brand name, service type, and project details with submission feedback.
 
 ### 9. Brand Footer (`Footer.tsx`)

@@ -11,22 +11,6 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
   const { theme } = useTheme();
   const [portraitLoaded, setPortraitLoaded] = useState(false);
 
-  const focusAreas = [
-    { title: 'AI Video', subtitle: 'Cinematic Motion' },
-    { title: 'Product Ads', subtitle: 'Macro Tactile Detail' },
-    { title: 'Creative Visuals', subtitle: 'Art Direction' },
-    { title: 'Brand Content', subtitle: 'Social & Digital' },
-  ];
-
-  const tools = [
-    'Runway Gen-3',
-    'Midjourney v6.1',
-    'Luma Dream Machine',
-    'Kling AI',
-    'Topaz Video AI',
-    'DaVinci Resolve Studio',
-  ];
-
   return (
     <section id="about" className="py-24 sm:py-32 scroll-mt-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +61,7 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
                       Oluwatobiloba
                     </h3>
                     <p className="text-xs text-[#F5C542] font-semibold">
-                      Founder & Lead AI Creator, Zentra
+                      Zentra Creator
                     </p>
                   </div>
 
@@ -124,50 +108,8 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
               </p>
 
               <p className="text-sm sm:text-base text-neutral-400 dark:text-neutral-400">
-                Traditional commercial production often locks brands into rigid timelines and
-                unforgiving budgets. By combining cutting-edge diffusion synthesis, 3D spatial
-                guidance, and professional color grading, I deliver the high-caliber aesthetics
-                of a major studio at the speed of modern digital commerce.
+                Traditional advertising can be expensive and take a long time to produce. I use modern AI technology, 3D design, and professional color editing to create high-quality visuals that look like they were made by a professional studio—faster, more affordably, and ready for today’s digital world.
               </p>
-            </div>
-
-            {/* Core Statistics & Focus Pillars */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-neutral-200 dark:border-neutral-800">
-              {focusAreas.map((stat) => (
-                <div key={stat.title} className="flex flex-col">
-                  <span className="font-display font-bold text-lg sm:text-xl text-[#F5C542]">
-                    {stat.title}
-                  </span>
-                  <span
-                    className={`text-xs mt-0.5 ${
-                      theme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'
-                    }`}
-                  >
-                    {stat.subtitle}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Creative Toolkit */}
-            <div className="pt-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-3">
-                Core Production Pipeline
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((t) => (
-                  <span
-                    key={t}
-                    className={`text-xs px-3 py-1 rounded-full border ${
-                      theme === 'dark'
-                        ? 'bg-neutral-900 border-white/10 text-neutral-300'
-                        : 'bg-neutral-100 border-black/10 text-neutral-700'
-                    }`}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* CTA Button */}

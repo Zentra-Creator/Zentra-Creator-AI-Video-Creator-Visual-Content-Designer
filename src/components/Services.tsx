@@ -99,7 +99,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService, onOpenProje
               theme === 'dark' ? 'text-white' : 'text-neutral-950'
             }`}
           >
-            What I Create
+            What I Design
           </h2>
 
           <p
