@@ -104,17 +104,12 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onOpen })
           </div>
         </div>
 
-        {/* Bottom Overlay Title & Metadata inside media container */}
-        <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end pointer-events-none z-10">
-          <h3 className="font-display text-sm sm:text-base font-bold tracking-tight text-white line-clamp-1 group-hover:text-[#F5C542] transition-colors">
-            {project.title}
-          </h3>
-          <div className="flex items-center justify-between text-xs mt-1 text-white/80 font-mono text-[11px]">
-            <span>{project.category} · {project.year || '2026'}</span>
-            <span className="font-semibold text-xs text-[#F5C542] flex items-center gap-1 group-hover:underline">
-              {project.isVideo ? 'Watch Video' : 'View Visual'} →
-            </span>
-          </div>
+        {/* Bottom Overlay Metadata inside media container (Titles removed) */}
+        <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-center justify-between text-xs text-white/80 font-mono text-[11px] pointer-events-none z-10">
+          <span>{project.category} · {project.year || '2026'}</span>
+          <span className="font-semibold text-xs text-[#F5C542] flex items-center gap-1 group-hover:underline">
+            {project.isVideo ? 'Watch Video' : 'View Visual'} →
+          </span>
         </div>
       </div>
 

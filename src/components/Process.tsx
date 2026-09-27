@@ -200,22 +200,6 @@ export const Process: React.FC<ProcessProps> = ({ onOpenFeaturedVideo }) => {
                 </button>
               </div>
             </div>
-
-            {/* Quick Reel Action Bar */}
-            <div
-              className={`p-4 sm:px-8 sm:py-4 flex items-center justify-end text-xs ${
-                theme === 'dark' ? 'bg-[#121217] text-neutral-400' : 'bg-neutral-900 text-neutral-300'
-              }`}
-            >
-              <button
-                type="button"
-                onClick={handleFullscreen}
-                className="font-bold text-[#F5C542] hover:underline flex items-center gap-1.5"
-              >
-                <span>Launch Fullscreen Player</span>
-                <span>→</span>
-              </button>
-            </div>
           </div>
         </div>
 
