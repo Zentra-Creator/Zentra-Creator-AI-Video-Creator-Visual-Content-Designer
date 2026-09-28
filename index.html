@@ -29,6 +29,27 @@
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 
+    <!-- Instant device-aware theme initialization: dark on desktop/tablet, light on mobile alone -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('zentra-theme');
+          var theme = saved;
+          if (!theme || (theme !== 'dark' && theme !== 'light')) {
+            theme = window.innerWidth < 768 ? 'light' : 'dark';
+          }
+          var root = document.documentElement;
+          if (theme === 'dark') {
+            root.classList.add('dark');
+            root.classList.remove('light');
+          } else {
+            root.classList.remove('dark');
+            root.classList.add('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
