@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Play, ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { CREATOR_ASSETS } from '../data/portfolioData';
+import { getOptimizedVideoUrl, getVideoPosterUrl } from '../utils/videoUtils';
 
 interface HeroProps {
   onPlayFeaturedVideo: (projectId?: string) => void;
@@ -255,11 +256,13 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="relative rounded-2xl overflow-hidden p-[1.5px] bg-gradient-to-br from-[#F5C542] via-[#F5C542]/60 to-transparent shadow-[0_0_25px_rgba(245,197,66,0.35)]">
                 <div className="relative aspect-[4/3] w-full rounded-[14px] overflow-hidden bg-neutral-900">
                   <video
-                    src="https://res.cloudinary.com/ird6se3z/video/upload/v1790335046/COFFEE.mp4"
+                    src={getOptimizedVideoUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790335046/COFFEE.mp4", 480)}
+                    poster={getVideoPosterUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790335046/COFFEE.mp4", 480)}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors pointer-events-none" />
@@ -285,11 +288,13 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="relative rounded-2xl overflow-hidden p-[1.5px] bg-gradient-to-br from-[#F5C542] via-[#F5C542]/60 to-transparent shadow-[0_0_25px_rgba(245,197,66,0.35)]">
                 <div className="relative aspect-[4/3] w-full rounded-[14px] overflow-hidden bg-neutral-900">
                   <video
-                    src="https://res.cloudinary.com/ird6se3z/video/upload/v1790336201/fashionn.mp4"
+                    src={getOptimizedVideoUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790336201/fashionn.mp4", 480)}
+                    poster={getVideoPosterUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790336201/fashionn.mp4", 480)}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors pointer-events-none" />
@@ -315,11 +320,13 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="relative rounded-2xl overflow-hidden p-[1.5px] bg-gradient-to-br from-[#F5C542] via-[#F5C542]/60 to-transparent shadow-[0_0_25px_rgba(245,197,66,0.35)]">
                 <div className="relative aspect-[4/3] w-full rounded-[14px] overflow-hidden bg-neutral-900">
                   <video
-                    src="https://res.cloudinary.com/ird6se3z/video/upload/v1790336116/JEWELLERY.mp4"
+                    src={getOptimizedVideoUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790336116/JEWELLERY.mp4", 480)}
+                    poster={getVideoPosterUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790336116/JEWELLERY.mp4", 480)}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors pointer-events-none" />
@@ -345,11 +352,13 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="relative rounded-2xl overflow-hidden p-[1.5px] bg-gradient-to-br from-[#F5C542] via-[#F5C542]/60 to-transparent shadow-[0_0_25px_rgba(245,197,66,0.35)]">
                 <div className="relative aspect-[4/3] w-full rounded-[14px] overflow-hidden bg-neutral-900">
                   <video
-                    src="https://res.cloudinary.com/ird6se3z/video/upload/v1790336839/202609110555.mp4"
+                    src={getOptimizedVideoUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790336839/202609110555.mp4", 480)}
+                    poster={getVideoPosterUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790336839/202609110555.mp4", 480)}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors pointer-events-none" />
@@ -375,11 +384,13 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="relative rounded-2xl overflow-hidden p-[1.5px] bg-gradient-to-br from-[#F5C542] via-[#F5C542]/60 to-transparent shadow-[0_0_25px_rgba(245,197,66,0.35)]">
                 <div className="relative aspect-[4/3] w-full rounded-[14px] overflow-hidden bg-neutral-900">
                   <video
-                    src="https://res.cloudinary.com/ird6se3z/video/upload/v1790337452/202609121334.mp4"
+                    src={getOptimizedVideoUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790337452/202609121334.mp4", 480)}
+                    poster={getVideoPosterUrl("https://res.cloudinary.com/ird6se3z/video/upload/v1790337452/202609121334.mp4", 480)}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors pointer-events-none" />

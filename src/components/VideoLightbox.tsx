@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Play, Pause, Volume2, VolumeX, Maximize2, Minimize2 } from 'lucide-react';
 import { Project } from '../types/portfolio';
+import { getOptimizedVideoUrl, getVideoPosterUrl } from '../utils/videoUtils';
 
 interface VideoLightboxProps {
   project: Project | null;
@@ -182,10 +183,12 @@ export const VideoLightbox: React.FC<VideoLightboxProps> = ({ project, onClose }
         {project.videoUrl ? (
           <video
             ref={videoRef}
-            src={project.videoUrl}
+            src={getOptimizedVideoUrl(project.videoUrl, 1280)}
+            poster={getVideoPosterUrl(project.videoUrl, 1280)}
             autoPlay
             loop
             playsInline
+            preload="auto"
             muted={isMuted}
             onLoadedMetadata={() => {
               if (videoRef.current && videoRef.current.duration) {

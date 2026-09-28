@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Play, Eye, Film, Sparkles } from 'lucide-react';
 import { Project } from '../types/portfolio';
 import { useTheme } from '../context/ThemeContext';
+import { getOptimizedVideoUrl, getVideoPosterUrl } from '../utils/videoUtils';
 
 interface PortfolioCardProps {
   project: Project;
@@ -12,15 +13,56 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onOpen })
   const { theme } = useTheme();
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  // Guarantee autoplay on mount and when video source changes
+  // Lazy-observe card entering viewport (with 250px margin) so off-screen videos don't clog network
   useEffect(() => {
-    if (videoRef.current && project.videoUrl) {
+    const el = containerRef.current;
+    if (!el) return;
+
+    if (!('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            if (videoRef.current && videoRef.current.paused) {
+              videoRef.current.play().catch(() => {});
+            }
+          } else {
+            // Pause offscreen videos to free GPU, CPU and network bandwidth
+            if (videoRef.current && !videoRef.current.paused) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      { rootMargin: '250px 0px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Guarantee autoplay when entering view or video source changes
+  useEffect(() => {
+    if (isInView && videoRef.current && project.videoUrl) {
       videoRef.current.muted = true;
       videoRef.current.play().catch(() => {});
     }
-  }, [project.videoUrl]);
+  }, [isInView, project.videoUrl]);
+
+  // Optimized streaming video URL + instant poster frame
+  const optimizedVideoUrl = project.videoUrl ? getOptimizedVideoUrl(project.videoUrl, 720) : '';
+  const videoPoster = project.videoUrl
+    ? getVideoPosterUrl(project.videoUrl, 640)
+    : project.thumbnail;
 
   // Aspect ratio classes
   const aspectClasses = {
@@ -33,6 +75,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onOpen })
 
   return (
     <div
+      ref={containerRef}
       onClick={() => onOpen(project)}
       className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 transform hover:-translate-y-1 self-start w-full ${
         theme === 'dark'
@@ -43,16 +86,26 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onOpen })
       {/* Media container */}
       <div className={`relative w-full overflow-hidden bg-neutral-950 ${aspectClasses}`}>
         {project.videoUrl ? (
-          <video
-            ref={videoRef}
-            src={project.videoUrl}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
+          isInView ? (
+            <video
+              ref={videoRef}
+              src={optimizedVideoUrl}
+              poster={videoPoster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <img
+              src={videoPoster}
+              alt={project.title}
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+          )
         ) : !imageError ? (
           <img
             src={project.thumbnail}

@@ -18,6 +18,7 @@ import {
 import { SERVICES_LIST, PORTFOLIO_PROJECTS } from '../data/portfolioData';
 import { Project } from '../types/portfolio';
 import { useTheme } from '../context/ThemeContext';
+import { getOptimizedVideoUrl, getVideoPosterUrl } from '../utils/videoUtils';
 
 interface ServicesProps {
   onSelectService: (serviceName: string) => void;
@@ -171,11 +172,13 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService, onOpenProje
                   <video
                     ref={showcaseVideoRef}
                     key={activeService.videoUrl}
-                    src={activeService.videoUrl}
+                    src={getOptimizedVideoUrl(activeService.videoUrl, 960)}
+                    poster={getVideoPosterUrl(activeService.videoUrl, 960)}
                     autoPlay
                     loop
                     muted={isMuted}
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover max-h-[500px]"
                   />
                 ) : (
