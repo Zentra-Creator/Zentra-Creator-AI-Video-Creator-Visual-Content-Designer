@@ -92,9 +92,11 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="home"
-      className="relative min-h-[96vh] pt-24 pb-12 lg:pt-28 lg:pb-16 flex flex-col justify-center overflow-hidden bg-black md:bg-[#070709]"
+      className={`relative min-h-[96vh] pt-24 pb-12 lg:pt-28 lg:pb-16 flex flex-col justify-center overflow-hidden transition-colors duration-300 ${
+        theme === 'dark' ? 'bg-black md:bg-[#070709]' : 'bg-[#FAF9F6] md:bg-[#FAF9F6]'
+      }`}
     >
-      {/* ================= FULL-BLEED CINEMATIC SCENE BACKGROUND (Hidden on mobile for pure black/blank background) ================= */}
+      {/* ================= FULL-BLEED CINEMATIC SCENE BACKGROUND (Hidden on mobile for clean background) ================= */}
       <div className="hidden md:block absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         {/* The Right Cinematic Image (Model + warm studio atmosphere) */}
         <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[68%] xl:w-[64%] h-full">
@@ -104,18 +106,36 @@ export const Hero: React.FC<HeroProps> = ({
             referrerPolicy="no-referrer"
             onLoad={() => setBgLoaded(true)}
             className={`w-full h-full object-cover object-[center_28%] lg:object-center transition-opacity duration-1000 ${
-              bgLoaded ? 'opacity-95' : 'opacity-0'
+              bgLoaded ? (theme === 'dark' ? 'opacity-95' : 'opacity-85') : 'opacity-0'
             }`}
           />
 
-          {/* Left seamless gradient blend into deep black text area */}
-          <div className="absolute inset-y-0 left-0 w-full sm:w-[55%] lg:w-[48%] bg-gradient-to-r from-[#070709] via-[#070709]/80 to-transparent" />
+          {/* Left seamless gradient blend into text area */}
+          <div
+            className={`absolute inset-y-0 left-0 w-full sm:w-[55%] lg:w-[48%] ${
+              theme === 'dark'
+                ? 'bg-gradient-to-r from-[#070709] via-[#070709]/80 to-transparent'
+                : 'bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/90 to-transparent'
+            }`}
+          />
 
           {/* Top subtle scrim for header legibility */}
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#070709] to-transparent" />
+          <div
+            className={`absolute inset-x-0 top-0 h-32 ${
+              theme === 'dark'
+                ? 'bg-gradient-to-b from-[#070709] to-transparent'
+                : 'bg-gradient-to-b from-[#FAF9F6] to-transparent'
+            }`}
+          />
 
           {/* Bottom scrim to blend seamlessly with subsequent sections */}
-          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#070709] via-[#070709]/75 to-transparent" />
+          <div
+            className={`absolute inset-x-0 bottom-0 h-36 ${
+              theme === 'dark'
+                ? 'bg-gradient-to-t from-[#070709] via-[#070709]/75 to-transparent'
+                : 'bg-gradient-to-t from-[#FAF9F6] via-[#FAF9F6]/85 to-transparent'
+            }`}
+          />
         </div>
 
         {/* Ambient Warm Golden Auras */}
@@ -131,13 +151,19 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-start justify-center space-y-6 pt-6 lg:pt-0 z-30">
             
             {/* Tagline Kicker */}
-            <div className="text-xs sm:text-[13px] font-semibold tracking-[0.28em] uppercase text-neutral-400">
+            <div
+              className={`text-xs sm:text-[13px] font-bold tracking-[0.28em] uppercase ${
+                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-800'
+              }`}
+            >
               AI VIDEO CREATOR
             </div>
 
             {/* Main Headline */}
             <h1
-              className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-[4.5rem] font-extrabold tracking-tight leading-[1.05] text-white"
+              className={`font-display text-4xl sm:text-5xl md:text-6xl xl:text-[4.5rem] font-extrabold tracking-tight leading-[1.05] ${
+                theme === 'dark' ? 'text-white' : 'text-neutral-950'
+              }`}
               style={{ textWrap: 'balance' }}
             >
               Ideas Worth<br />
@@ -145,7 +171,11 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-sm sm:text-base md:text-[17px] max-w-lg leading-relaxed font-normal text-neutral-300">
+            <p
+              className={`text-sm sm:text-base md:text-[17px] max-w-lg leading-relaxed font-normal ${
+                theme === 'dark' ? 'text-neutral-300' : 'text-neutral-800'
+              }`}
+            >
               I create cinematic AI ads for products and brands that grab attention, build trust and
               drive real results.
             </p>
@@ -163,7 +193,11 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Categories / Niche Strip (Exact 5 columns matching reference) */}
-            <div className="w-full pt-8 sm:pt-10 border-t border-neutral-800/80">
+            <div
+              className={`w-full pt-8 sm:pt-10 border-t ${
+                theme === 'dark' ? 'border-neutral-800/80' : 'border-neutral-300'
+              }`}
+            >
               <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-2">
                 {categories.map((cat, idx) => (
                   <div
@@ -177,18 +211,30 @@ export const Hero: React.FC<HeroProps> = ({
                     </div>
 
                     {/* Category Title */}
-                    <div className="font-display text-xs sm:text-[13px] font-bold tracking-tight text-white transition-colors group-hover:text-[#F5C542]">
+                    <div
+                      className={`font-display text-xs sm:text-[13px] font-bold tracking-tight transition-colors group-hover:text-[#F5C542] ${
+                        theme === 'dark' ? 'text-white' : 'text-neutral-950'
+                      }`}
+                    >
                       {cat.name}
                     </div>
 
                     {/* Tagline */}
-                    <div className="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5 whitespace-nowrap">
+                    <div
+                      className={`text-[10px] sm:text-[11px] mt-0.5 whitespace-nowrap font-medium ${
+                        theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
+                      }`}
+                    >
                       {cat.sub}
                     </div>
 
                     {/* Thin vertical separator */}
                     {idx < categories.length - 1 && (
-                      <div className="hidden sm:block absolute right-0 top-1 bottom-1 w-px bg-neutral-800" />
+                      <div
+                        className={`hidden sm:block absolute right-0 top-1 bottom-1 w-px ${
+                          theme === 'dark' ? 'bg-neutral-800' : 'bg-neutral-300'
+                        }`}
+                      />
                     )}
                   </div>
                 ))}

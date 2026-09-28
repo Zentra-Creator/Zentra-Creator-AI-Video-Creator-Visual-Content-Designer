@@ -70,8 +70,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
         isScrolled
           ? theme === 'dark'
             ? 'bg-[#09090b]/85 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-black/20'
-            : 'bg-[#FDFDFD]/85 backdrop-blur-md border-b border-black/[0.08] shadow-sm shadow-black/5'
-          : 'bg-transparent border-b border-transparent'
+            : 'bg-[#FAF9F6]/95 backdrop-blur-md border-b border-black/[0.08] shadow-sm shadow-black/5'
+          : theme === 'dark'
+          ? 'bg-transparent border-b border-transparent'
+          : 'bg-[#FAF9F6]/80 md:bg-transparent border-b border-black/[0.04] md:border-transparent backdrop-blur-sm md:backdrop-blur-none'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,12 +195,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className={`text-base font-medium py-2 transition-colors flex items-center justify-between ${
+                className={`text-base py-2 transition-colors flex items-center justify-between ${
                   activeSection === link.id
-                    ? 'text-[#F5C542] font-semibold'
+                    ? 'text-[#F5C542] font-bold'
                     : theme === 'dark'
-                    ? 'text-neutral-300 hover:text-white'
-                    : 'text-neutral-700 hover:text-black'
+                    ? 'text-neutral-300 hover:text-white font-medium'
+                    : 'text-neutral-900 hover:text-black font-semibold'
                 }`}
               >
                 <span>{link.label}</span>
