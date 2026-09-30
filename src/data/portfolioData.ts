@@ -204,6 +204,23 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     deliverables: ['Broadcast Campaign Spot', 'Social Cutdowns', 'Digital Display Motion'],
     featured: false,
   },
+  {
+    id: 'flow-ai-commercial',
+    title: 'FLOW AI — Next-Gen Creative Motion',
+    category: 'AI Video',
+    secondaryCategories: ['Product', 'Lifestyle'],
+    description: 'Dynamic 9:16 vertical commercial visual showcasing fluid AI transformation, hyper-tactile kinetic textures, and next-generation brand energy.',
+    thumbnail: lumiereFashion,
+    aspectRatio: '9:16',
+    isVideo: true,
+    videoUrl: 'https://res.cloudinary.com/bev86hd6/video/upload/v1790764160/FLOW_AI_jbmcpa.mp4',
+    videoDuration: '0:30',
+    client: 'FLOW AI Creative',
+    year: '2026',
+    toolsUsed: ['Runway Gen-3', 'Midjourney v6.1', 'After Effects', 'DaVinci Resolve'],
+    deliverables: ['9:16 Vertical Reel', 'TikTok / Reels Social Cut', 'High-Impact Mobile Spot'],
+    featured: true,
+  },
 ];
 
 export const SERVICES_LIST: ServiceItem[] = [
