@@ -88,6 +88,9 @@ function PortfolioApp() {
           onSelectCategory={handleCategorySelectFromHero}
         />
 
+        {/* About Section — Personal Story of Oluwatobiloba (Directly After Hero) */}
+        <About onOpenContact={handleOpenContact} />
+
         {/* Selected Work Portfolio Grid with Filter System */}
         <PortfolioGrid
           onOpenProject={(proj) => setActiveProject(proj)}
@@ -103,9 +106,6 @@ function PortfolioApp() {
           onSelectService={handleSelectService}
           onOpenProject={(proj) => setActiveProject(proj)}
         />
-
-        {/* About Section — Personal Story of Oluwatobiloba */}
-        <About onOpenContact={handleOpenContact} />
 
         {/* Final CTA & Project Inquiry Section */}
         <ContactCTA initialService={selectedService} />

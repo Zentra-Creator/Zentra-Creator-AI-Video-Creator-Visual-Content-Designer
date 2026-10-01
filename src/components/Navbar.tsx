@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       }
 
       // Check current section
-      const sections = ['home', 'work', 'services', 'showreel', 'about', 'contact'];
+      const sections = ['home', 'about', 'work', 'services', 'showreel', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -41,9 +41,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
   const navLinks = [
     { label: 'Home', href: '#home', id: 'home' },
+    { label: 'About', href: '#about', id: 'about' },
     { label: 'Portfolio', href: '#work', id: 'work' },
     { label: 'Services', href: '#services', id: 'services' },
-    { label: 'About', href: '#about', id: 'about' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ];
 
